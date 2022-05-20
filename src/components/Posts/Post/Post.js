@@ -7,7 +7,6 @@ import {
   CardMedia,
   Button,
   Typography,
-  ButtonBase,
 } from "@material-ui/core";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -16,6 +15,7 @@ import moment from "moment";
 import { useDispatch } from "react-redux";
 import { deletePost, likePost } from "../../../actions/posts";
 import { useHistory } from "react-router-dom";
+import Cube from "../../../images/cube.png";
 
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
@@ -45,7 +45,7 @@ const Post = ({ post, setCurrentId }) => {
       <div style={{ cursor: "pointer" }} onClick={openPost}>
         <CardMedia
           className={classes.media}
-          image={post.selectedFile}
+          image={post.selectedFile ? post.selectedFile : Cube}
           title={post.title}
         />
         <div className={classes.overlay}>
